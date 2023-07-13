@@ -1,4 +1,4 @@
-class PhysicalTherapists < ActiveRecord::Migration[7.0]
+class CreatePhysicalTherapists < ActiveRecord::Migration[7.0]
   def change
     create_table :physical_therapists do |t|
       t.string :email 
