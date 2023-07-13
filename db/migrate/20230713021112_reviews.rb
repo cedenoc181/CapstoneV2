@@ -8,5 +8,6 @@ class Reviews < ActiveRecord::Migration[7.0]
     t.string :photo
     t.string :star_rating 
     t.timestamps
+    end
   end
 end

@@ -7,5 +7,6 @@ class Exercises < ActiveRecord::Migration[7.0]
       t.string :equipment
       t.string :gifUrl
       t.timestamps
+    end
   end
 end
