@@ -3,11 +3,9 @@ class CreateReviews < ActiveRecord::Migration[7.0]
     create_table :reviews do |t|
       t.integer :user_id
       t.integer :physical_therapist_id
-      t.string :review_header
       t.text :users_review
       t.string :photo
-      t.string :star_rating_value
-      t.string :stars
+      t.integer :stars
       t.timestamps
     end
   end

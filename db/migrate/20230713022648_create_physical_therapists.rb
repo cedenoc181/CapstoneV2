@@ -12,7 +12,6 @@ class CreatePhysicalTherapists < ActiveRecord::Migration[7.0]
       t.string :city
       t.string :clinic_address
       t.string :phone_number 
-      t.string :under_grad_education
       t.string :post_grad__education
       t.string :insurance_network 
       t.string :languages_spoken
