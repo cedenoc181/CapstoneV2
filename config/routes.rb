@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   post "/auth/login", to: "auth#login"
   get "/fav", to: "users#favorite_exercises"
   delete "/fav/:exercise_id", to: "users#fav_delete"
+  # still working on thhis route my-appointments
   get "/my-appointments", to: "users#get_appointments"
-  get '/pectorals', to: 'exercises#pectorals'
-  get '/glutes', to: 'exercises#glutes'
+  get '/legs', to: 'exercises#legs'
+  get '/shoulders', to: 'exercises#shoulders'
   get '/chest', to: 'exercises#chest'
-  get '/arms', to: 'exercises#arm'
+  get '/arms', to: 'exercises#arms'
   get '/abs', to: 'exercises#abs'
   get '/back', to: 'exercises#back'
   resources :favorites, only: [:index, :show, :create, :destroy]
