@@ -25,21 +25,6 @@ class ExercisesController < ApplicationController
         render json: exercise
     end
 
-    # def shoulders
-    #     exercise = Exercise.where(bodyPart: 'shoulders')
-    #     render json: exercise
-    # end
-
-    # def chest
-    #     body = Exercise.where(bodyPart:'chest')
-    #     render json: body
-    # end
-
-    # def back
-    #     body = Exercise.where(bodyPart:'back')
-    #     render json: body
-    # end
-
     def upper_arms
         body = Exercise.where(bodyPart:'upper arms')
         render json: body
@@ -50,12 +35,6 @@ class ExercisesController < ApplicationController
         render json: body
     end
 
-    # def waist
-    #     body = Exercise.where(bodyPart:'waist')
-    #     render json: body
-    # end
-
-    # test this for dry code 
       def body_part_filter
         @exercise = Exercise.where(bodyPart: params[:body_part].downcase)
         render json: @exercise
@@ -64,21 +43,6 @@ class ExercisesController < ApplicationController
 
 
     # below is methods to search exercises throughh equipments 
-
-    # def weighted 
-    #     equipment = Exercise.where(target: "weighted")
-    #     render json: equipment
-    # end
-
-    # def band 
-    #     equipment = Exercise.where(target: "band")
-    #     render json: equipment
-    # end
-
-    # def barbell
-    #     equipment = Exercise.where(target: "barbell")
-    #     render json: equipment
-    # end
 
     def body_weight
         equipment = Exercise.where(target: "body weight")
@@ -90,28 +54,11 @@ class ExercisesController < ApplicationController
         render json: equipment
     end
 
-    def equipment_filter
+      def equipment_filter
         @equipment = Exercise.where(equipment: params[:equipment].downcase)
         render json: @equipment
       end
-
-    # def cable
-    #     equipment = Exercise.where(target: "cable")
-    #     render json: equipment
-    # end
-
-    # def dumbbell
-    #     equipment = Exercise.where(target: "dumbbell")
-    #     render json: equipment
-    # end
-
-    # def kettlebell 
-    #     equipment = Exercise.where(target: "kettlebell")
-    #     render json: equipment
-    # end
-
     
-
     private 
 
     def find_exercise 
@@ -122,5 +69,4 @@ class ExercisesController < ApplicationController
         render json: { error: " Exercise not found" }, status: :not_found 
     end 
     
-
 end
