@@ -25,20 +25,20 @@ class ExercisesController < ApplicationController
         render json: exercise
     end
 
-    def shoulders
-        exercise = Exercise.where(bodyPart: 'shoulders')
-        render json: exercise
-    end
+    # def shoulders
+    #     exercise = Exercise.where(bodyPart: 'shoulders')
+    #     render json: exercise
+    # end
 
-    def chest
-        body = Exercise.where(bodyPart:'chest')
-        render json: body
-    end
+    # def chest
+    #     body = Exercise.where(bodyPart:'chest')
+    #     render json: body
+    # end
 
-    def back
-        body = Exercise.where(bodyPart:'back')
-        render json: body
-    end
+    # def back
+    #     body = Exercise.where(bodyPart:'back')
+    #     render json: body
+    # end
 
     def upper_arms
         body = Exercise.where(bodyPart:'upper arms')
@@ -50,10 +50,18 @@ class ExercisesController < ApplicationController
         render json: body
     end
 
-    def waist
-        body = Exercise.where(bodyPart:'waist')
-        render json: body
-    end
+    # def waist
+    #     body = Exercise.where(bodyPart:'waist')
+    #     render json: body
+    # end
+
+    # test this for dry code 
+      def body_part_filter
+        @exercise = Exercise.where(bodyPart: params[:body_part].downcase)
+        render json: @exercise
+      end
+
+
 
     # below is methods to search exercises throughh equipments 
 
@@ -97,7 +105,7 @@ class ExercisesController < ApplicationController
         render json: equipment
     end
 
-    def 
+    
 
     private 
 
