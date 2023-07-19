@@ -85,4 +85,3 @@ exercise_array.each do |s|
 end
 
 
-# puts response.read_body
