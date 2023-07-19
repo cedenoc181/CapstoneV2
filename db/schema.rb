@@ -46,8 +46,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_13_023351) do
     t.string "title"
     t.string "specialization"
     t.string "npi_number"
-    t.string "state"
-    t.string "city"
     t.string "clinic_address"
     t.string "phone_number"
     t.string "post_grad__education"

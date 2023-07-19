@@ -8,8 +8,6 @@ class CreatePhysicalTherapists < ActiveRecord::Migration[7.0]
       t.string :title
       t.string :specialization
       t.string :npi_number 
-      t.string :state 
-      t.string :city
       t.string :clinic_address
       t.string :phone_number 
       t.string :post_grad__education
