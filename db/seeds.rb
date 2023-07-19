@@ -1,7 +1,7 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
-
+require 'rest-client'
 
 p "destroy all old data ♻️"
 # User.destroy_all
@@ -50,3 +50,7 @@ PhysicalTherapist.create!(email: "williamsonthe3rd@hotmail.com", first_name: "da
 PhysicalTherapist.create!(email: "timcookin@apple.com", first_name: "tim", last_name: "cook", profile_picture: 'https://handsonpt.org/wp-content/uploads/2022/01/noel-ortega-jr-hands-on-pt-astoria-ny-hicksville-queens-village-bronx-ny-400x450.png.webp', clinic_address: "12 East 44th St, 5th Floor, New York, NY 10017", specialization: "Geriatric Clinical Specialist", title: "DPT", insurance_network: companies.shuffle.slice(0, 6).join(", "), home_visits: true, about_me: "As a geriatric physical therapist, I specialize in helping older adults maintain their independence and improve their quality of life through rehabilitation and functional improvement. With a Doctor of Physical Therapy degree and specialized training in geriatric care, I use a personalized approach to treatment and work with my patients to set and achieve their individualized goals. Whether it's helping a patient recover from a fall or manage chronic conditions such as arthritis or Parkinson's disease, I am dedicated to helping my patients live their best lives.", rating: 0.00, phone_number: "347-909-1411", post_grad__education: "Sam Houston State Univeristy", languages_spoken: languages.shuffle.slice(2, 3), npi_number: "129597502")
 
 p "seeding exercise Data 🌱"
+
+def exercise_database_key
+    ENV["EXERCISE_DB_KEY"]
+end

@@ -32,7 +32,11 @@ gem "jbuilder"
 
 gem 'active_model_serializers'
 
+# gem rest client accesees the url for our external api request
 gem 'rest-client', '~> 1.8'
+
+# gem dotenv-rails hides api key
+gem 'dotenv-rails', '~> 2.8', '>= 2.8.1'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
