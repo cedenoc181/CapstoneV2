@@ -65,20 +65,20 @@ class ExercisesController < ApplicationController
 
     # below is methods to search exercises throughh equipments 
 
-    def weighted 
-        equipment = Exercise.where(target: "weighted")
-        render json: equipment
-    end
+    # def weighted 
+    #     equipment = Exercise.where(target: "weighted")
+    #     render json: equipment
+    # end
 
-    def band 
-        equipment = Exercise.where(target: "band")
-        render json: equipment
-    end
+    # def band 
+    #     equipment = Exercise.where(target: "band")
+    #     render json: equipment
+    # end
 
-    def barbell
-        equipment = Exercise.where(target: "barbell")
-        render json: equipment
-    end
+    # def barbell
+    #     equipment = Exercise.where(target: "barbell")
+    #     render json: equipment
+    # end
 
     def body_weight
         equipment = Exercise.where(target: "body weight")
@@ -90,20 +90,25 @@ class ExercisesController < ApplicationController
         render json: equipment
     end
 
-    def cable
-        equipment = Exercise.where(target: "cable")
-        render json: equipment
-    end
+    def equipment_filter
+        @equipment = Exercise.where(equipment: params[:equipment].downcase)
+        render json: @equipment
+      end
 
-    def dumbbell
-        equipment = Exercise.where(target: "dumbbell")
-        render json: equipment
-    end
+    # def cable
+    #     equipment = Exercise.where(target: "cable")
+    #     render json: equipment
+    # end
 
-    def kettlebell 
-        equipment = Exercise.where(target: "kettlebell")
-        render json: equipment
-    end
+    # def dumbbell
+    #     equipment = Exercise.where(target: "dumbbell")
+    #     render json: equipment
+    # end
+
+    # def kettlebell 
+    #     equipment = Exercise.where(target: "kettlebell")
+    #     render json: equipment
+    # end
 
     
 
