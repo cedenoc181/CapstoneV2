@@ -1,7 +1,7 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
-require 'rest-client'
+# require 'rest-client'
 
 p "destroy all old data ♻️"
 # User.destroy_all
@@ -54,3 +54,35 @@ p "seeding exercise Data 🌱"
 def exercise_database_key
     ENV["EXERCISE_DB_KEY"]
 end
+
+require 'uri'
+require 'net/http'
+
+# def exercise_seed
+url = URI("https://exercisedb.p.rapidapi.com/exercises")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(url)
+request["X-RapidAPI-Key"] = exercise_database_key
+request["X-RapidAPI-Host"] = 'exercisedb.p.rapidapi.com'
+
+response = http.request(request)
+
+exercise_array = JSON.parse(response.body)
+
+exercise_array.each do |s|
+
+    Exercise.create!(
+        id: s['id'], 
+        bodyPart: s["bodyPart"], 
+        name: s["name"], 
+        target: s["target"], 
+        gifUrl: s["gifUrl"], 
+        equipment: s["equipment"]
+    )
+end
+
+
+# puts response.read_body

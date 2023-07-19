@@ -35,6 +35,11 @@ gem 'active_model_serializers'
 # gem rest client accesees the url for our external api request
 gem 'rest-client', '~> 1.8'
 
+gem 'net-http', '~> 0.3.2'
+
+gem 'uri', '~> 0.12.2'
+
+
 # gem dotenv-rails hides api key
 gem 'dotenv-rails', '~> 2.8', '>= 2.8.1'
 
