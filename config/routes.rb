@@ -5,14 +5,14 @@ Rails.application.routes.draw do
   delete "/fav/:exercise_id", to: "users#fav_delete"
   # still working on thhis route my-appointments
   get "/my-appointments", to: "users#get_appointments"
-  get 'exercises/upper_legs', to: 'exercises#upper_legs'
-  get 'exercises/lower_legs', to: 'exercises#lower_legs'
-  get 'exercises/shoulders', to: 'exercises#shoulders'
-  get 'exercises/chest', to: 'exercises#chest'
-  get 'exercises/back', to: 'exercises#back'
-  get 'exercises/upper_arms', to: 'exercises#upper_arms'
-  get 'exercises/lower_arms', to: 'exercises#lower_arms'
-  get 'exercises/waist', to: 'exercises#waist'
+  get '/upper_legs', to: 'exercises#upper_legs'
+  get '/lower_legs', to: 'exercises#lower_legs'
+  get '/shoulders', to: 'exercises#shoulders'
+  get '/chest', to: 'exercises#chest'
+  get '/upper_arms', to: 'exercises#upper_arms'
+  get '/lower_arms', to: 'exercises#lower_arms'
+  get '/waist', to: 'exercises#waist'
+  get '/back', to: 'exercises#back'
   resources :favorites, only: [:index, :show, :create, :destroy]
   resources :exercises, only:[:index, :show]
   resources :reviews, only:[:index, :show, :create, :destroy]
