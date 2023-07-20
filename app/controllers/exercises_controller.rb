@@ -45,12 +45,12 @@ class ExercisesController < ApplicationController
     # below is methods to search exercises throughh equipments 
 
     def body_weight
-        equipment = Exercise.where(target: "body weight")
+        equipment = Exercise.where(equipment: "body weight")
         render json: equipment
     end
 
     def stability_ball
-        equipment = Exercise.where(target: "stability ball")
+        equipment = Exercise.where(equipment: "stability ball")
         render json: equipment
     end
 
@@ -58,6 +58,23 @@ class ExercisesController < ApplicationController
         @equipment = Exercise.where(equipment: params[:equipment].downcase)
         render json: @equipment
       end
+
+    #   filter exercises by specific muscle method
+
+    def target_filter
+        @target = Exercise.where(target: params[:target].downcase)
+        render json: @target
+    end
+
+    def s_a
+        target = Exercise.where(target: "serratus anterior")
+        render json: target
+    end
+
+    def cardio 
+        target = Exercise.where(target: "cardiovascular system")
+        render json: target
+    end
     
     private 
 

@@ -1,6 +1,6 @@
 class PhysicalTherapistsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found
-    skip_before_action :authorized, only: [:create, :index, :show]
+    # skip_before_action :authorized, only: [:create, :index, :show]
 
 
     def index
@@ -35,10 +35,17 @@ class PhysicalTherapistsController < ApplicationController
         head :no_content 
     end
 
-    # def ortho
-    #     ortho = PhysicalTherapist.where(specialization: "Orthopaedic Clinical Specialist")
-    #     render json: ortho
+    # this is commented out until fixed
+
+    # def insurance_filter
+    #    @insurance = PhysicalTherapist.where(insurance_network: params[:insurance_network].downcase)
+    #    render json: @insurance
     # end
+
+    def specialization_filter
+        @speciality = PhysicalTherapist.where(specialization: params[:specialization].downcase)
+        render json: @speciality
+    end
 
     private 
 

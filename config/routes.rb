@@ -20,6 +20,20 @@ Rails.application.routes.draw do
 # dry code routes for other equipment 
 get '/:equipment', to: 'exercises#equipment_filter', constraints: { equipment: /(weighted|band|barbell|cable|dumbbell|kettlebell)/ }
 
+# get exercise through target 
+
+get "/:target", to: "exercises#target_filter", constraints: { target: /(abs|lats|pectorals|hamstrings|triceps|biceps|quads|glutes|delts|forearms|adductors|calves|traps|spine|abductors|)/}
+
+get "/serratus_anterior", to: "exercises#s_a"
+
+get "/cardiovascular_system", to: "exercises#cardio"
+
+# get Physical therapist based on insurance network this is commented out until fixed
+# get "/:insurance_network", to: "physical_therapists#insurance_filter", constraints: {insurance_network: /(Assurant|Anthem Inc.|CIGNA|Kaiser Foundation| Allied Insurance|Blue Cross Blue Sheild|Aflac|Metropolitan|Allstate|United Health)/}
+
+get "/:specialization", to: "physical_therapists#specialization_filter", constraints: {specialization: /(Cardiovascular & Pulmonary Clinical Specialist|Geriatric Clinical Specialist|Orthopaedic Clinical Specialist|Electrophysiologic Clinical Specialist|Womens Health Specialist|Neurology Clinical Specialist|Sports Clinical Specialist|Pediatric Clinical Specialist|Oncology Specialist)/}
+
+
 
   # routes for 
   resources :favorites, only: [:index, :show, :create, :destroy]
