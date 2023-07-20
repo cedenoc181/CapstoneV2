@@ -40,6 +40,9 @@ class PhysicalTherapistsController < ApplicationController
     # def insurance_filter
     #    @insurance = PhysicalTherapist.where(insurance_network: params[:insurance_network].downcase)
     #    render json: @insurance
+
+    # test this code out and see if this solves the issue is resolved and use ChatGPT to make it dry if needed 
+# PhysicalTherapist.pluck(:insurance_network).select!{|insurance| insurance.include? "Blue Cross Blue Shield"} 
     # end
 
     def specialization_filter
