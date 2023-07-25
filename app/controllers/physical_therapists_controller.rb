@@ -45,12 +45,74 @@ class PhysicalTherapistsController < ApplicationController
 # PhysicalTherapist.pluck(:insurance_network).select!{|insurance| insurance.downcase.include? "Blue Cross Blue Shield"} 
     # end
 
-    def specialization_filter
-        @speciality = PhysicalTherapist.where(specialization: params[:specialization].downcase)
-        render json: @speciality
+    def sports_fil
+        sports = PhysicalTherapist.where(specialization: "Sports")
+        render json: sports
     end
 
+    def geriatric_fil
+        geriatric = PhysicalTherapist.where(specialization: "Geriatric")
+        render json: geriatric
+    end
+
+    def cardiovascular_fil
+        cardio = PhysicalTherapist.where(specialization: "Cardiovascular")
+        render json: cardio
+    end
+
+    def neurology_fil 
+        neuro = PhysicalTherapist.where(specialization: "Neurology")
+        render json: neuro
+    end
+
+    def pulmonary_fil
+        pulm = PhysicalTherapist.where(specialization: "Pulmonary")
+        render json: pulm 
+    end
+
+    def oncology_fil 
+        oncology = PhysicalTherapist.where(specialization: "Oncology")
+        render json: oncology
+    end
+
+    def pediatric_fil
+        pediatric = PhysicalTherapist.where(specialization: "Pediatric")
+        render json: pediatric
+    end
+
+    def electrophysiologic_fil
+        elec = PhysicalTherapist.where(specialization: "Electrophysiologic")
+        render json: elec
+    end
+
+    def orthopedic_fil 
+        ortho = PhysicalTherapist.where(specialization: "Orthopaedic")
+        render json: ortho
+    end
+
+    def womens_health
+        women = PhysicalTherapist.where(specialization: "Womens Health")
+        render json: women
+    end
+
+# want to use this code but its not returning data so hard coding routes 
+    # def specialization_filter
+    #     @speciality = PhysicalTherapist.where(specialization: params[:specialization].downcase)
+    #     render json: @speciality
+    # end
+
+    def filter_by_insurance
+        insurance_network = params[:insurance_network] || [] # Get the insurance types from the URL query parameters
+        @physical_therapists = filter_by_insurance(insurance_network)
+        render json: @physical_therapists
+      end
+
     private 
+    
+    def filter_by_insurance(insurance_network)
+        # Assuming you have an Insurance model
+        PhysicalTherapist.where("insurance_companies ILIKE ANY (ARRAY[?])", insurance_network.map { |network| "%#{network}%" })
+      end
 
     def find_physical_therapist 
        pt = PhysicalTherapist.find(params[:id])

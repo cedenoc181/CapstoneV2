@@ -21,8 +21,7 @@ Rails.application.routes.draw do
 get '/:equipment', to: 'exercises#equipment_filter', constraints: { equipment: /(weighted|band|barbell|cable|dumbbell|kettlebell)/ }
 
 # get exercise through target 
-
-get "/:target", to: "exercises#target_filter", constraints: { target: /(abs|lats|pectorals|hamstrings|triceps|biceps|quads|glutes|delts|forearms|adductors|calves|traps|spine|abductors|)/}
+get "/:target", to: "exercises#target_filter", constraints: { target: /(abs|lats|pectorals|hamstrings|triceps|biceps|quads|glutes|delts|forearms|adductors|calves|traps|spine|abductors)/}
 
 get "/serratus_anterior", to: "exercises#s_a"
 
@@ -31,9 +30,34 @@ get "/cardiovascular_system", to: "exercises#cardio"
 # get Physical therapist based on insurance network this is commented out until fixed
 # get "/:insurance_network", to: "physical_therapists#insurance_filter", constraints: {insurance_network: /(Assurant|Anthem Inc.|CIGNA|Kaiser Foundation| Allied Insurance|Blue Cross Blue Sheild|Aflac|Metropolitan|Allstate|United Health)/}
 
-get "/:specialization", to: "physical_therapists#specialization_filter", constraints: {specialization: /(Cardiovascular & Pulmonary Clinical Specialist|Geriatric Clinical Specialist|Orthopaedic Clinical Specialist|Electrophysiologic Clinical Specialist|Womens Health Specialist|Neurology Clinical Specialist|Sports Clinical Specialist|Pediatric Clinical Specialist|Oncology Specialist)/}
+# get "/pt/:specialization", to: "physical_therapists#specialization_filter", constraints: { specialization: /(Cardiovascular|Geriatric|Orthopaedic|Electrophysiologic|Womens_Health|Neurology|Sports|Pediatric|Oncology)/ }
+
+# come back to this and dry this code up.
+get "/sports", to: "physical_therapists#sports_fil"
+
+get "/geriatric", to: "physical_therapists#geriatric_fil"
+
+get "/cardiovascular", to: "physical_therapists#cardiovascular_fil"
+
+get "/neurology", to: "physical_therapists#neurology_fil"
+
+get "/pulmonary", to: "physical_therapists#pulmonary_fil"
+
+get "/oncology", to: "physical_therapists#oncology_fil"
+
+get "/pediatric", to: "physical_therapists#pediatric_fil"
+
+get "/electrophysiologic", to: "physical_therapists#electrophysiologic_fil"
+
+get "/orthopedic", to: "physical_therapists#orthopedic_fil"
+
+get "/whealth", to: "physical_therapists#womens_health"
 
 
+
+
+
+get '/filter_by_insurance', to: 'physical_therapists#filter_by_insurance'
 
   # routes for 
   resources :favorites, only: [:index, :show, :create, :destroy]
