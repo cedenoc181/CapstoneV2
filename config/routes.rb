@@ -65,7 +65,7 @@ get "/travel2home", to: "physical_therapists#yes_HV"
   resources :exercises, only:[:index, :show]
   resources :reviews, only:[:index, :show, :create, :destroy]
   resources :appointments, only:[:index, :show, :create, :destroy]
-  resources :physical_therapists, only:[:index, :show, :create, :update, :destroy]
+  resources :physical_therapists, only:[:index, :show, :update, :destroy]
   resources :users, only:[:index, :show, :update, :create, :destroy]
   # Defines the root path route ("/")
   # root "articles#index"
