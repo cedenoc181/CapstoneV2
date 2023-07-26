@@ -95,24 +95,28 @@ class PhysicalTherapistsController < ApplicationController
         render json: women
     end
 
+    def yes_HV 
+        does = PhysicalTherapist.where(home_visits: true)
+        render json: does
+    end
+
+
+
+
 # want to use this code but its not returning data so hard coding routes 
     # def specialization_filter
     #     @speciality = PhysicalTherapist.where(specialization: params[:specialization].downcase)
     #     render json: @speciality
     # end
 
-    def filter_by_insurance
-        insurance_network = params[:insurance_network] || [] # Get the insurance types from the URL query parameters
-        @physical_therapists = filter_by_insurance(insurance_network)
-        render json: @physical_therapists
-      end
+    # def filter_by_insurance
+    #     target = "Aflac"
+    #      insurances = PhysicalTherapist.pluck(:id,:first_name, :last_name, :title, :profile_picture, :clinic_address, :specialization, :insurance_network)
+    #         targeted_insurance = insurances.select { |ins| ins.include?(target)}
+    #             targeted_insurance.each { |array| render json: array}
+    #       end
 
     private 
-    
-    def filter_by_insurance(insurance_network)
-        # Assuming you have an Insurance model
-        PhysicalTherapist.where("insurance_companies ILIKE ANY (ARRAY[?])", insurance_network.map { |network| "%#{network}%" })
-      end
 
     def find_physical_therapist 
        pt = PhysicalTherapist.find(params[:id])
