@@ -8,5 +8,5 @@ class User < ApplicationRecord
 
     has_secure_password
     # add validation to password length 
-    validates :username, :email, uniqueness: true
+    validates :email, uniqueness: true
 end

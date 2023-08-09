@@ -1,6 +1,6 @@
 class PhysicalTherapistsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found
-    # skip_before_action :authorized, only: [:create, :index, :show]
+    skip_before_action :authorized, only: [:create, :index, :show]
 
 
     def index

@@ -2,10 +2,10 @@ class AuthController < ApplicationController
     # skip_before_action :authorized, only: [:login]
     skip_before_action :authorized
 
-rescue_from ActiveRecord::RecordNotFound, with: :invalid_username
+rescue_from ActiveRecord::RecordNotFound, with: :invalid_email
 # if user render user else if pt render pt ?
     def login 
-        @user = User.find_by!(username: login_params[:username])
+        @user = User.find_by!(email: login_params[:email])
         if @user.authenticate(login_params[:password])
             @token = encode_token(user_id: @user.id)
             render json: {
@@ -21,11 +21,11 @@ rescue_from ActiveRecord::RecordNotFound, with: :invalid_username
     private 
 
     def login_params
-        params.permit(:username, :password)
+        params.permit(:email, :password)
     end
 
-    def invalid_username 
-        render json: {message: 'Invalid username'}, status: :unauthorized
+    def invalid_email
+        render json: {message: 'Invalid email'}, status: :unauthorized
     end
 end
 

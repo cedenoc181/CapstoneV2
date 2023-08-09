@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found
-    skip_before_action :authorized, only: [:create, :index, :show,:update, :get_appointments]
+    skip_before_action :authorized, only: [:create, :index, :show, :update, :get_appointments]
 
     def index 
         user = User.all
@@ -57,14 +57,14 @@ class UsersController < ApplicationController
 
     def find_ex 
       ex = current_user.favorites.find_by(exercise_id: params[:exercise_id])
-  end 
+    end 
 
     def find_user 
         user = User.find(params[:id])
     end 
 
     def create_user_params 
-      params.permit(:username, :password, :email)
+      params.permit(:password, :email)
     end 
 
     def update_user_params
