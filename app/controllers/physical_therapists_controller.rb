@@ -23,17 +23,17 @@ class PhysicalTherapistsController < ApplicationController
         #     }, status: :created
     end
 
-    def update
-        pt = find_physical_therapist
-        pt.update!(update_physical_therapist_params)
-        render json: pt
-    end
+    # def update
+    #     pt = find_physical_therapist
+    #     pt.update!(update_physical_therapist_params)
+    #     render json: pt
+    # end
 
-    def destroy
-        pt = find_physical_therapist
-        pt.destroy
-        head :no_content 
-    end
+    # def destroy
+    #     pt = find_physical_therapist
+    #     pt.destroy
+    #     head :no_content 
+    # end
 
     # this is commented out until fixed
 
@@ -126,9 +126,9 @@ class PhysicalTherapistsController < ApplicationController
         params.permit(:first_name, :last_name, :clinic_address, :specialization, :phone_number)
     end
 
-    def update_physical_therapist_params
-        params.permit(:first_name, :last_name, :profile_picture, :clinic_address, :specialization, :title, :insurance_network, :home_visits, :about_me, :rating)
-    end
+    # def update_physical_therapist_params
+    #     params.permit(:first_name, :last_name, :profile_picture, :clinic_address, :specialization, :title, :insurance_network, :home_visits, :about_me, :rating)
+    # end
 
     def render_record_not_found 
         render json: { error: "Physcial Therapist not found" }, status: :not_found 
