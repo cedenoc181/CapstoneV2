@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   delete "/fav/:exercise_id", to: "users#fav_delete"
   # still working on this route my-appointments
   get "/my-appointments", to: "users#get_appointments"
+  delete "/my-appointments/:id", to: "users#delete_visit"
 
   # routes for body part filter for exercise data with underscore
   get '/upper_legs', to: 'exercises#upper_legs'

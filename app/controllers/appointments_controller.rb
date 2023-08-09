@@ -31,7 +31,7 @@ class AppointmentsController < ApplicationController
     end
 
     def create_appointment_params
-        params.permit(:user_id, :physical_therapist_id, :scheduled, :claim, :home_visit)
+        params.permit(:user_id, :physical_therapist_id, :scheduled, :case, :home_visit)
     end
 
     def render_record_not_found 

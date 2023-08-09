@@ -41,6 +41,12 @@ class UsersController < ApplicationController
       # render json: current_user.to_json(only: [:appointments]), status: :ok
     end
 
+    def delete_visit
+      visit = find_appointment
+      visit.destroy
+      head :no_content 
+    end
+
     def update 
       user = find_user
       user.update!(update_user_params)
@@ -58,6 +64,10 @@ class UsersController < ApplicationController
     def find_ex 
       ex = current_user.favorites.find_by(exercise_id: params[:exercise_id])
     end 
+
+    def find_appointment
+      app = current_user.appointments.find_by(id: params[:id])
+    end
 
     def find_user 
         user = User.find(params[:id])
