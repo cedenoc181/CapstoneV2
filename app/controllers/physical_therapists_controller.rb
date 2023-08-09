@@ -13,15 +13,15 @@ class PhysicalTherapistsController < ApplicationController
         render json: pt, serializer: PhysicalTherapistSerializer
     end
 
-    # def create
-    #     pt = PhysicalTherapist.create!(create_physical_therapist_params)
-    #     # @token = encode_token(physical_therapist_id: physical_therapist.id)
-    #     render json: pt
-    #     # {
-    #     #     pt: PhysicalTherapistSerializer.new(pt),
-    #     #     token: @token
-    #     #     }, status: :created
-    # end
+    def create
+        pt = PhysicalTherapist.create!(create_physical_therapist_params)
+        # @token = encode_token(physical_therapist_id: physical_therapist.id)
+        render json: pt
+        # {
+        #     pt: PhysicalTherapistSerializer.new(pt),
+        #     token: @token
+        #     }, status: :created
+    end
 
     def update
         pt = find_physical_therapist
@@ -122,9 +122,9 @@ class PhysicalTherapistsController < ApplicationController
        pt = PhysicalTherapist.find(params[:id])
     end 
 
-    # def create_physical_therapist_params
-    #     params.permit(:first_name, :last_name, :clinic_address, :specialization, :phone_number)
-    # end
+    def create_physical_therapist_params
+        params.permit(:first_name, :last_name, :clinic_address, :specialization, :phone_number)
+    end
 
     def update_physical_therapist_params
         params.permit(:first_name, :last_name, :profile_picture, :clinic_address, :specialization, :title, :insurance_network, :home_visits, :about_me, :rating)

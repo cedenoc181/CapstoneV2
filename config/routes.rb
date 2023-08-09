@@ -33,7 +33,7 @@ get "/cardiovascular_system", to: "exercises#cardio"
 # get "/pt/:specialization", to: "physical_therapists#specialization_filter", constraints: { specialization: /(Cardiovascular|Geriatric|Orthopaedic|Electrophysiologic|Womens_Health|Neurology|Sports|Pediatric|Oncology)/ }
 
 # come back to this and dry this code up.
-# these are filter routes that will filter the pt available for users
+# these are filter routes that will filter the pt specializations available for users
 get "/sports", to: "physical_therapists#sports_fil"
 
 get "/geriatric", to: "physical_therapists#geriatric_fil"
@@ -54,6 +54,7 @@ get "/orthopedic", to: "physical_therapists#orthopedic_fil"
 
 get "/whealth", to: "physical_therapists#womens_health"
 
+# this will gewnerate PT 's available for hokme visits 
 get "/travel2home", to: "physical_therapists#yes_HV"
 
 
