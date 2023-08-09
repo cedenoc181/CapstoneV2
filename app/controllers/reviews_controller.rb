@@ -31,7 +31,7 @@ class ReviewsController < ApplicationController
     end
 
     def create_review_params
-        params.permit(:user_id, :physical_therapist_id, :review_header, :users_review, :photo, :star_rating)
+        params.permit(:user_id, :physical_therapist_id, :users_review, :photo, :stars)
     end
 
     def render_record_not_found 
