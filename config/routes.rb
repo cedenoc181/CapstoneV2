@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   post "/auth/login", to: "auth#login"
+  # fav route displays only users fav exercises 
   get "/fav", to: "users#favorite_exercises"
   delete "/fav/:exercise_id", to: "users#fav_delete"
   # still working on this route my-appointments
@@ -66,7 +67,7 @@ get "/travel2home", to: "physical_therapists#yes_HV"
   resources :favorites, only: [:index, :show, :create, :destroy]
   resources :exercises, only:[:index, :show]
   resources :reviews, only:[:index, :show, :create, :destroy]
-  resources :appointments, only:[:index, :show, :create, :destroy]
+  resources :appointments, only:[:index, :show, :update, :create, :destroy]
   resources :physical_therapists, only:[:index, :show, :update, :destroy]
   resources :users, only:[:index, :show, :update, :create, :destroy]
   # Defines the root path route ("/")

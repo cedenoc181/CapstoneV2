@@ -123,7 +123,7 @@ class PhysicalTherapistsController < ApplicationController
     end 
 
     def create_physical_therapist_params
-        params.permit(:first_name, :last_name, :clinic_address, :specialization, :phone_number)
+        params.permit(:first_name, :last_name, :clinic_address, :specialization, :phone_number, :npi_number, :title, :profile_picture, :insurance_network, :about_me, :home_visits, :languages_spoken, :post_grad__education)
     end
 
     # def update_physical_therapist_params

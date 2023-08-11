@@ -13,6 +13,12 @@ class AppointmentsController < ApplicationController
         render json: appointment
     end
 
+    def update 
+        appointment = find_appointment
+        appointment.update!(update_appointments_params)
+       render json: appointment
+      end 
+
     def create
         appointment = Appointment.create!(create_appointment_params)
         render json: appointment
@@ -29,6 +35,10 @@ class AppointmentsController < ApplicationController
     def find_appointment 
         appointment = Appointment.find(params[:id])
     end
+
+    def update_appointments_params
+        params.permit(:physical_therapist_id, :scheduled, :case, :home_visit)
+    end 
 
     def create_appointment_params
         params.permit(:user_id, :physical_therapist_id, :scheduled, :case, :home_visit)
