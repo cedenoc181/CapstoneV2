@@ -5,6 +5,7 @@ class CreateAppointments < ActiveRecord::Migration[7.0]
       t.integer :physical_therapist_id
       t.string :case 
       t.boolean :home_visit
+      t.boolean :telemedicine
       t.string :scheduled
       t.timestamps
     end

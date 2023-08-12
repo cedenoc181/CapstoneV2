@@ -14,6 +14,7 @@ class CreatePhysicalTherapists < ActiveRecord::Migration[7.0]
       t.string :insurance_network 
       t.string :languages_spoken
       t.boolean :home_visits 
+      t.boolean :telemedicine
       t.text :about_me
       t.float :rating
       t.timestamps

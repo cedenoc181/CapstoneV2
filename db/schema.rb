@@ -16,6 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_13_023351) do
     t.integer "physical_therapist_id"
     t.string "case"
     t.boolean "home_visit"
+    t.boolean "telemedicine"
     t.string "scheduled"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -52,6 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_13_023351) do
     t.string "insurance_network"
     t.string "languages_spoken"
     t.boolean "home_visits"
+    t.boolean "telemedicine"
     t.text "about_me"
     t.float "rating"
     t.datetime "created_at", null: false
