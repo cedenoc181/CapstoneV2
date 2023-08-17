@@ -100,7 +100,10 @@ class PhysicalTherapistsController < ApplicationController
         render json: does
     end
 
-
+    def filter_telemedicine
+        tele = PhysicalTherapist.where(telemedicine: true)
+        render json: tele
+    end
 
 
 # want to use this code but its not returning data so hard coding routes 

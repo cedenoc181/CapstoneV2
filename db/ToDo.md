@@ -18,3 +18,6 @@ Exercise controller
 
 short term to-do 
 confirm all routes for major tables work, so far these are good  (reviews, exercises, pt, appointments, favorites, users)
+
+
+add telemedicine filter feature where PT can be filter based on tele health 

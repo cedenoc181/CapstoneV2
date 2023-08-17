@@ -56,10 +56,11 @@ get "/orthopedic", to: "physical_therapists#orthopedic_fil"
 
 get "/whealth", to: "physical_therapists#womens_health"
 
-# this will gewnerate PT 's available for hokme visits 
+# this will generate PT 's available for home visits 
 get "/travel2home", to: "physical_therapists#yes_HV"
 
-
+# this will generate PT's available for telemedicine 
+get "/telemedicine", to: "physical_therapists#filter_telemedicine"
 
 # get '/aflac', to: 'physical_therapists#filter_by_insurance'
 
