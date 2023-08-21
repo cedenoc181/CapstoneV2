@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   post "/auth/login", to: "auth#login"
+  get "/me", to: "users#me"
   # fav route displays only users fav exercises 
   get "/fav", to: "users#favorite_exercises"
   delete "/fav/:exercise_id", to: "users#fav_delete"
