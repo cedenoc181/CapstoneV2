@@ -8,6 +8,9 @@ rescue_from ActiveRecord::RecordNotFound, with: :invalid_email
         @user = User.find_by!(email: login_params[:email])
         if @user.authenticate(login_params[:password])
             @token = encode_token(user_id: @user.id)
+
+               # Set a session cookie containing the user's authentication token
+    #   cookies[:auth_token] = { value: @token, expires: 1.week.from_now }
             render json: {
                 user: UserSerializer.new(@user),
                 token: @token

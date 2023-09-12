@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_13_023351) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_12_034151) do
   create_table "appointments", force: :cascade do |t|
     t.integer "user_id"
     t.integer "physical_therapist_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_13_023351) do
     t.string "scheduled"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "clinic"
   end
 
   create_table "exercises", force: :cascade do |t|
