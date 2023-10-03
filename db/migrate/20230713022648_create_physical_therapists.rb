@@ -6,7 +6,7 @@ class CreatePhysicalTherapists < ActiveRecord::Migration[7.0]
       t.string :profile_picture
       t.string :title
       t.string :specialization
-      t.float :rating
+      t.float :rating, default: 0.0
       t.timestamps
     end
   end

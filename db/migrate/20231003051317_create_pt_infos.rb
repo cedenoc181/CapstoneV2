@@ -1,6 +1,7 @@
 class CreatePtInfos < ActiveRecord::Migration[7.0]
   def change
     create_table :pt_infos do |t|
+      t.integer :physical_therapist_id
       t.string :email
       t.string :fax
       t.string :phone_number

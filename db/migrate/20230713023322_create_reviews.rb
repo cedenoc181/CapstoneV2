@@ -5,7 +5,7 @@ class CreateReviews < ActiveRecord::Migration[7.0]
       t.integer :physical_therapist_id
       t.text :users_review
       t.string :photo
-      t.integer :stars
+      t.integer :stars, default: 0
       t.timestamps
     end
   end
