@@ -180,7 +180,7 @@
       "x": 1200.399238768775,
       "y": -1910.1092586457237,
       "width": 194.17333984375,
-      "height": 284.80938720703125,
+      "height": 322.66319106009996,
       "angle": 0,
       "strokeColor": "#000000",
       "backgroundColor": "#15aabf",
@@ -194,8 +194,8 @@
         "type": 3
       },
       "seed": 2091721910,
-      "version": 762,
-      "versionNonce": 1952012214,
+      "version": 884,
+      "versionNonce": 76929846,
       "isDeleted": false,
       "boundElements": [
         {
@@ -203,7 +203,7 @@
           "type": "arrow"
         }
       ],
-      "updated": 1696307019143,
+      "updated": 1696310245862,
       "link": null,
       "locked": false
     },
@@ -1434,7 +1434,7 @@
       "x": 1221.079553330024,
       "y": -1863.1785478141508,
       "width": 153.15985107421875,
-      "height": 250,
+      "height": 300,
       "angle": 0,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
@@ -1446,8 +1446,8 @@
       "groupIds": [],
       "roundness": null,
       "seed": 2079200682,
-      "version": 579,
-      "versionNonce": 1435375926,
+      "version": 619,
+      "versionNonce": 1743242282,
       "isDeleted": false,
       "boundElements": [
         {
@@ -1455,17 +1455,17 @@
           "type": "arrow"
         }
       ],
-      "updated": 1696305763884,
+      "updated": 1696310271479,
       "link": null,
       "locked": false,
-      "text": "email\nfax\nphone_number\nnpi_number\nclinic_address\npost_grad_edu\nhome_visit\ntelemedicine\nabout_me\n",
+      "text": "email\nfax\nphone_number\nnpi_number\nclinic_address\npost_grad_edu\nhome_visit\ntelemedicine\ninsurance_net\nlanguages\nabout_me\n",
       "fontSize": 20,
       "fontFamily": 1,
       "textAlign": "left",
       "verticalAlign": "top",
-      "baseline": 243,
+      "baseline": 293,
       "containerId": null,
-      "originalText": "email\nfax\nphone_number\nnpi_number\nclinic_address\npost_grad_edu\nhome_visit\ntelemedicine\nabout_me\n",
+      "originalText": "email\nfax\nphone_number\nnpi_number\nclinic_address\npost_grad_edu\nhome_visit\ntelemedicine\ninsurance_net\nlanguages\nabout_me\n",
       "lineHeight": 1.25
     },
     {
@@ -1474,7 +1474,7 @@
       "x": 824.8466138833663,
       "y": -1848.2366806818095,
       "width": 172.81983947753906,
-      "height": 225,
+      "height": 200,
       "angle": 0,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
@@ -1486,8 +1486,8 @@
       "groupIds": [],
       "roundness": null,
       "seed": 249409142,
-      "version": 161,
-      "versionNonce": 320755766,
+      "version": 163,
+      "versionNonce": 24913450,
       "isDeleted": false,
       "boundElements": [
         {
@@ -1503,17 +1503,17 @@
           "type": "arrow"
         }
       ],
-      "updated": 1696306091649,
+      "updated": 1696310238313,
       "link": null,
       "locked": false,
-      "text": "first_name\nlast_name\ntitle\nprofile_picture\nlanguages_spoken\nspecilization\ninsrance_network\nrating\n",
+      "text": "first_name\nlast_name\ntitle\nprofile_picture\nlanguages_spoken\nspecilization\nrating\n",
       "fontSize": 20,
       "fontFamily": 1,
       "textAlign": "left",
       "verticalAlign": "top",
-      "baseline": 218,
+      "baseline": 193,
       "containerId": null,
-      "originalText": "first_name\nlast_name\ntitle\nprofile_picture\nlanguages_spoken\nspecilization\ninsrance_network\nrating\n",
+      "originalText": "first_name\nlast_name\ntitle\nprofile_picture\nlanguages_spoken\nspecilization\nrating\n",
       "lineHeight": 1.25
     },
     {
@@ -1554,10 +1554,10 @@
     {
       "id": "KrB7Frh1wHHn2yBqXd3U5",
       "type": "arrow",
-      "x": 1179.714037406306,
-      "y": -1690.1625206116396,
-      "width": 146.43091555629871,
-      "height": 2.9787482404053662,
+      "x": 1180.74713632182,
+      "y": -1677.9798756886516,
+      "width": 147.46401447181256,
+      "height": 0.8449201908804298,
       "angle": 0,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
@@ -1571,11 +1571,11 @@
         "type": 2
       },
       "seed": 359707190,
-      "version": 503,
-      "versionNonce": 144913386,
+      "version": 799,
+      "versionNonce": 2008695734,
       "isDeleted": false,
       "boundElements": null,
-      "updated": 1696305795764,
+      "updated": 1696310250286,
       "link": null,
       "locked": false,
       "points": [
@@ -1584,20 +1584,20 @@
           0
         ],
         [
-          -146.43091555629871,
-          -2.9787482404053662
+          -147.46401447181256,
+          -0.8449201908804298
         ]
       ],
       "lastCommittedPoint": null,
       "startBinding": {
         "elementId": "UlY1nFO9zHYdWPoQ1KXVr",
-        "focus": -0.5536638484456807,
-        "gap": 20.685201362468888
+        "focus": -0.4414577944961987,
+        "gap": 19.652102446954814
       },
       "endBinding": {
         "elementId": "f4V9Nic1K9bEULg5I8OGR",
-        "focus": 0.44321950968356144,
-        "gap": 28.462223361498218
+        "focus": 0.5605933080426134,
+        "gap": 28.462223361498445
       },
       "startArrowhead": null,
       "endArrowhead": "arrow"
@@ -1777,10 +1777,10 @@
     {
       "id": "tETOhFddnNurQ_RVex6vp",
       "type": "arrow",
-      "x": 920.0228341692255,
-      "y": -1603.7342001520374,
-      "width": 0.8979523529446851,
-      "height": 49.60660606062288,
+      "x": 919.6395829359634,
+      "y": -1628.7342001520374,
+      "width": 1.0566822594222458,
+      "height": 62.40157967028631,
       "angle": 0,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
@@ -1794,11 +1794,11 @@
         "type": 2
       },
       "seed": 1573002282,
-      "version": 99,
-      "versionNonce": 1654761974,
+      "version": 103,
+      "versionNonce": 1412026602,
       "isDeleted": false,
       "boundElements": null,
-      "updated": 1696306083652,
+      "updated": 1696310238315,
       "link": null,
       "locked": false,
       "points": [
@@ -1807,8 +1807,8 @@
           0
         ],
         [
-          0.8979523529446851,
-          49.60660606062288
+          1.0566822594222458,
+          62.40157967028631
         ]
       ],
       "lastCommittedPoint": null,
@@ -1829,9 +1829,9 @@
       "id": "dlJ1CcGY44kosU0cvZc5z",
       "type": "arrow",
       "x": 918.7727161278603,
-      "y": -1552.9579760754402,
-      "width": 0.2749979080892899,
-      "height": 61.69412040334714,
+      "y": -1552.9579760754445,
+      "width": 0.35792752882696277,
+      "height": 86.69412040334282,
       "angle": 0,
       "strokeColor": "#000000",
       "backgroundColor": "transparent",
@@ -1845,11 +1845,11 @@
         "type": 2
       },
       "seed": 1665399594,
-      "version": 70,
-      "versionNonce": 1832381290,
+      "version": 74,
+      "versionNonce": 1096033194,
       "isDeleted": false,
       "boundElements": null,
-      "updated": 1696306091649,
+      "updated": 1696310238316,
       "link": null,
       "locked": false,
       "points": [
@@ -1858,8 +1858,8 @@
           0
         ],
         [
-          0.2749979080892899,
-          -61.69412040334714
+          0.35792752882696277,
+          -86.69412040334282
         ]
       ],
       "lastCommittedPoint": null,

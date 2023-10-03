@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  fax: MyString
+  phone_number: MyString
+  npi_number: MyString
+  clinic_address: MyString
+  post_grad_edu: MyString
+  home_visit: false
+  telemedicine: false
+  about_me: MyText
+
+two:
+  email: MyString
+  fax: MyString
+  phone_number: MyString
+  npi_number: MyString
+  clinic_address: MyString
+  post_grad_edu: MyString
+  home_visit: false
+  telemedicine: false
+  about_me: MyText

@@ -1,0 +1,2 @@
+class PtInfo < ApplicationRecord
+end

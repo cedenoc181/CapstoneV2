@@ -1,0 +1,52 @@
+<%= form_with(model: users_info) do |form| %>
+  <% if users_info.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(users_info.errors.count, "error") %> prohibited this users_info from being saved:</h2>
+
+      <ul>
+        <% users_info.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :state, style: "display: block" %>
+    <%= form.text_field :state %>
+  </div>
+
+  <div>
+    <%= form.label :city, style: "display: block" %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div>
+    <%= form.label :address, style: "display: block" %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :DOB, style: "display: block" %>
+    <%= form.text_field :DOB %>
+  </div>
+
+  <div>
+    <%= form.label :phone_number, style: "display: block" %>
+    <%= form.text_field :phone_number %>
+  </div>
+
+  <div>
+    <%= form.label :insurance, style: "display: block" %>
+    <%= form.text_field :insurance %>
+  </div>
+
+  <div>
+    <%= form.label :insurance_id, style: "display: block" %>
+    <%= form.text_field :insurance_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

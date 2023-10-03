@@ -1,0 +1,62 @@
+<%= form_with(model: pt_info) do |form| %>
+  <% if pt_info.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(pt_info.errors.count, "error") %> prohibited this pt_info from being saved:</h2>
+
+      <ul>
+        <% pt_info.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :fax, style: "display: block" %>
+    <%= form.text_field :fax %>
+  </div>
+
+  <div>
+    <%= form.label :phone_number, style: "display: block" %>
+    <%= form.text_field :phone_number %>
+  </div>
+
+  <div>
+    <%= form.label :npi_number, style: "display: block" %>
+    <%= form.text_field :npi_number %>
+  </div>
+
+  <div>
+    <%= form.label :clinic_address, style: "display: block" %>
+    <%= form.text_field :clinic_address %>
+  </div>
+
+  <div>
+    <%= form.label :post_grad_edu, style: "display: block" %>
+    <%= form.text_field :post_grad_edu %>
+  </div>
+
+  <div>
+    <%= form.label :home_visit, style: "display: block" %>
+    <%= form.check_box :home_visit %>
+  </div>
+
+  <div>
+    <%= form.label :telemedicine, style: "display: block" %>
+    <%= form.check_box :telemedicine %>
+  </div>
+
+  <div>
+    <%= form.label :about_me, style: "display: block" %>
+    <%= form.text_area :about_me %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
