@@ -1,3 +1,3 @@
 class PhysicalTherapistSerializer < ActiveModel::Serializer
-  attributes :id, :email, :first_name, :last_name, :profile_picture, :clinic_address, :specialization, :title, :npi_number, :languages_spoken, :insurance_network, :home_visits, :telemedicine, :about_me, :rating, :post_grad__education, :phone_number, :appointments, :users, :reviews
+  attributes :id, :first_name, :last_name, :profile_picture, :specialization, :title, :rating, :pt_infos, :users, :appointments, :reviews
 end
