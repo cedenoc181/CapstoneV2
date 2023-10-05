@@ -15,12 +15,7 @@ class PhysicalTherapistsController < ApplicationController
 
     def create
         pt = PhysicalTherapist.create!(create_physical_therapist_params)
-        # @token = encode_token(physical_therapist_id: physical_therapist.id)
         render json: pt
-        # {
-        #     pt: PhysicalTherapistSerializer.new(pt),
-        #     token: @token
-        #     }, status: :created
     end
 
     # def update

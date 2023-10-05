@@ -1,22 +1,15 @@
 class UsersInfosController < ApplicationController
-  before_action :set_users_info, only: %i[ show edit update destroy ]
-
-  # GET /users_infos or /users_infos.json
-  def index
-    @users_infos = UsersInfo.all
-  end
+  before_action :set_users_info, only: %i[ show update destroy ]
 
   # GET /users_infos/1 or /users_infos/1.json
   def show
+    @user_info = set_users_info
+    render json: @user_info
   end
 
   # GET /users_infos/new
   def new
     @users_info = UsersInfo.new
-  end
-
-  # GET /users_infos/1/edit
-  def edit
   end
 
   # POST /users_infos or /users_infos.json
@@ -65,6 +58,6 @@ class UsersInfosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def users_info_params
-      params.require(:users_info).permit(:state, :city, :address, :DOB, :phone_number, :insurance, :insurance_id)
+      params.require(:users_info).permit(:user_id, :state, :city, :address, :DOB, :phone_number, :insurance, :insurance_id)
     end
 end

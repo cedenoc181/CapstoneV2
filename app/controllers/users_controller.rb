@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found
-    skip_before_action :authorized, only: [:create, :index, :show, :update, :get_appointments]
+    skip_before_action :authorized, only: %i[create, index]
 
     def index 
         user = User.all
