@@ -21,3 +21,8 @@ confirm all routes for major tables work, so far these are good  (reviews, exerc
 
 
 add telemedicine filter feature where PT can be filter based on tele health 
+
+
+user serializer 
+
+-add expressions to serializer when controller and model is finalized 

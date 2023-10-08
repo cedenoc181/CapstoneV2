@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    has_one :users_info
     has_many :appointments, dependent: :destroy
     has_many :physical_therapists, through: :appointments 
     has_many :favorites, dependent: :destroy

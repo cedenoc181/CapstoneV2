@@ -49,6 +49,6 @@ class PtInfosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pt_info_params
-      params.require(:pt_info).permit(:physical_therapist_id, :email, :fax, :phone_number, :npi_number, :clinic_address, :post_grad_edu, :home_visit, :telemedicine, :about_me)
+      params.require(:pt_info).permit(:physical_therapist_id, :email, :fax, :phone_number, :npi_number, :clinic_address, :post_grad_edu, :languages, :home_visit, :telemedicine, :about_me)
     end
 end

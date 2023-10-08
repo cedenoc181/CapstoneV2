@@ -91,12 +91,12 @@ class PhysicalTherapistsController < ApplicationController
     end
 
     def yes_HV 
-        does = PhysicalTherapist.where(home_visits: true)
-        render json: does
+        home = PhysicalTherapist.pt_info.where(home_visits: true)
+        render json: home
     end
 
     def filter_telemedicine
-        tele = PhysicalTherapist.where(telemedicine: true)
+        tele = PhysicalTherapist.pt_info.where(telemedicine: true)
         render json: tele
     end
 
@@ -125,7 +125,7 @@ class PhysicalTherapistsController < ApplicationController
     end
 
     def update_physical_therapist_params
-        params.permit(:first_name, :last_name, :specialization, :title, :profile_picture)
+        params.permit(:first_name, :last_name, :specialization, :title, :profile_picture, :rating)
     end
 
     def render_record_not_found 
