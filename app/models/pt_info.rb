@@ -1,3 +1,3 @@
 class PtInfo < ApplicationRecord
-    belongs_to :PhysicalTherapist
+    belongs_to :physical_therapist
 end

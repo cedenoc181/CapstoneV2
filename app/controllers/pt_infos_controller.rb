@@ -36,7 +36,7 @@ class PtInfosController < ApplicationController
 
   # DELETE /pt_infos/1 or /pt_infos/1.json
   def destroy
-    @pt_info = pt_info_params
+    @pt_info = set_pt_info
      @pt_info.destroy
      head :no_content 
   end

@@ -78,7 +78,7 @@ class UsersController < ApplicationController
     end 
 
     def update_user_params
-      params.permit(:first_name, :last_name, :email, :DOB, :state, :city, :insurance, :insurance_member_id, :address, :phone_number)
+      params.permit(:first_name, :last_name, admin:false)
     end 
 
     def render_record_not_found 

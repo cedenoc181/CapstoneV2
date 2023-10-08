@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  resources :expressions
-  resources :articles
-  resources :pt_infos
-  resources :users_infos
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   post "/auth/login", to: "auth#login"
   get "/me", to: "users#me"
@@ -70,12 +66,16 @@ get "/telemedicine", to: "physical_therapists#filter_telemedicine"
 # get '/aflac', to: 'physical_therapists#filter_by_insurance'
 
   # routes for 
+  resources :expressions, only: [:create, :show, :destroy, :update, :index]
+  resources :articles, only: [:create, :show, :index, :destroy, :update]
+  resources :pt_infos, only: [:create, :show, :destroy, :update]
+  resources :users_infos, only: [:create, :show, :destroy, :update]
   resources :sessions, only: [:create]
   resources :favorites, only: [:index, :show, :create, :destroy]
   resources :exercises, only:[:index, :show]
   resources :reviews, only:[:index, :show, :create, :destroy]
   resources :appointments, only:[:index, :show, :update, :create, :destroy]
-  resources :physical_therapists, only:[:index, :show, :update, :destroy]
+  resources :physical_therapists, only:[:index, :create, :show, :update, :destroy]
   resources :users, only:[:index, :show, :update, :create, :destroy]
   # Defines the root path route ("/")
   # root "articles#index"
