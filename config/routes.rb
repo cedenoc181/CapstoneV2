@@ -69,7 +69,7 @@ get "/telemedicine", to: "physical_therapists#filter_telemedicine"
   resources :expressions, only: [:create, :show, :destroy, :update, :index]
   resources :articles, only: [:create, :show, :index, :destroy, :update]
   resources :pt_infos, only: [:create, :show, :index, :destroy, :update]
-  resources :users_infos, only: [:create, :show, :destroy, :update]
+  resources :users_infos, only: [:index, :create, :show, :destroy, :update]
   resources :sessions, only: [:create]
   resources :favorites, only: [:index, :show, :create, :destroy]
   resources :exercises, only:[:index, :show]

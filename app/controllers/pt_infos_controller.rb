@@ -1,5 +1,5 @@
 class PtInfosController < ApplicationController
-  before_action :set_pt_info, only: %i[ show create update destroy ]
+  skip_before_action :authorized, only: %i[ show create update destroy ]
 
   # GET /pt_infos/1 or /pt_infos/1.json
   def show
@@ -49,6 +49,6 @@ class PtInfosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pt_info_params
-      params.require(:pt_info).permit(:physical_therapist_id, :email, :fax, :phone_number, :npi_number, :clinic_address, :post_grad_edu, :languages, :home_visit, :telemedicine, :about_me)
+      params.require(:pt_info).permit(:physical_therapist_id, :email, :fax, :phone_number, :npi_number, :clinic_address, :post_grad_edu, :languages, :home_visit, :tele_medicine, :about_me, :insurance_network)
     end
 end
