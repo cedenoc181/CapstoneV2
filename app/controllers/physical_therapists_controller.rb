@@ -40,6 +40,12 @@ class PhysicalTherapistsController < ApplicationController
 # PhysicalTherapist.pluck(:insurance_network).select!{|insurance| insurance.downcase.include? "Blue Cross Blue Shield"} 
     # end
 
+    def pt
+        info = find_physical_therapist
+        pt = info.pt_infos
+        render json: pt
+    end
+
     def sports_fil
         sports = PhysicalTherapist.where(specialization: "Sports")
         render json: sports
