@@ -1,9 +1,11 @@
 class PhysicalTherapist < ApplicationRecord
     has_one  :pt_info
     has_many :appointments, dependent: :destroy
-    has_many :users, through: :appointments 
+    # all patients that booked an appointment with PT will be rendered 
+    has_many :my_patients, through: :appointments, source: :user
     has_many :reviews, dependent: :destroy
-    has_many :users, through: :reviews
+    # all patients that left a review will be rendered 
+    has_many :feedback_from, through: :reviews, source: :user
 
     accepts_nested_attributes_for :pt_info
 end
