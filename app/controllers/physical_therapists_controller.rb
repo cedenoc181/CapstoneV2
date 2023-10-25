@@ -4,29 +4,29 @@ class PhysicalTherapistsController < ApplicationController
 
 
     def index
-        pt = PhysicalTherapist.all
-        render json: pt, status: :ok
+        @pt = PhysicalTherapist.all
+        render json: @pt, status: :ok
     end
 
     def show
-        pt = find_physical_therapist
-        render json: pt, serializer: PhysicalTherapistSerializer
+        @pt = find_physical_therapist
+        render json: @pt, serializer: PhysicalTherapistSerializer
     end
 
     def create
-        pt = PhysicalTherapist.create!(create_physical_therapist_params)
-        render json: pt
+        @pt = PhysicalTherapist.create!(create_physical_therapist_params)
+        render json: @pt
     end
 
     def update
-        pt = find_physical_therapist
-        pt.update!(update_physical_therapist_params)
-        render json: pt
+        @pt = find_physical_therapist
+        @pt.update!(update_physical_therapist_params)
+        render json: @pt
     end
          
     def destroy
-        pt = find_physical_therapist
-        pt.destroy
+        @pt = find_physical_therapist
+        @pt.destroy
         head :no_content 
     end
 
@@ -42,8 +42,8 @@ class PhysicalTherapistsController < ApplicationController
 
     def pt
         info = find_physical_therapist
-        pt = info.pt_infos
-        render json: pt
+        @pt = info.pt_infos
+        render json: @pt
     end
 
     def sports_fil
@@ -123,7 +123,7 @@ class PhysicalTherapistsController < ApplicationController
     private 
 
     def find_physical_therapist 
-       pt = PhysicalTherapist.find(params[:id])
+       @pt = PhysicalTherapist.find(params[:id])
     end 
 
     def create_physical_therapist_params

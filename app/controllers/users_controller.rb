@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found
-    skip_before_action :authorized, only: %i[create, index]
+    skip_before_action :authorized, only: %i[create, index, show, me]
 
     def index 
         user = User.all
@@ -10,7 +10,6 @@ class UsersController < ApplicationController
     def show 
         user = find_user
         render json: user, serializer: UserSerializer 
-        # render json: { user: UserSerializer.new(current_user) }, status: :accepted
     end 
 
     def create
@@ -74,7 +73,7 @@ class UsersController < ApplicationController
     end 
 
     def create_user_params 
-      params.permit(:password, :email)
+      params.permit(:password, :email, :first_name, :last_name)
     end 
 
     def update_user_params
