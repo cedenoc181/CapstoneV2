@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::API
+    rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found
+    rescue_from ActiveRecord::RecordNotSaved, with: :render_record_not_saved
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
+
     include ActionController::Cookies
     before_action :authorized
     
@@ -33,11 +36,16 @@ class ApplicationController < ActionController::API
         end
     end
 
-
-    def render_unprocessable_entity(invalid)
-        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
-    end 
-
-
-
-end
+    private 
+    def render_record_not_found
+        render json: { error: 'Record not found' }, status: :not_found
+      end
+      
+      def render_record_not_saved
+        render json: { error: 'Record could not be saved to the data base, make sure all params are filled accordingly' }, status: :unprocessable_entity
+      end
+      
+      def render_unprocessable_entity
+        render json: { error: 'Record is invalid' }, status: :unprocessable_entity
+      end
+  end

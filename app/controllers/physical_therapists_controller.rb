@@ -15,7 +15,7 @@ class PhysicalTherapistsController < ApplicationController
 
     def create
         @pt = PhysicalTherapist.create!(create_physical_therapist_params)
-        render json: @pt
+        render json: @pt,  status: :created
     end
 
     def update
