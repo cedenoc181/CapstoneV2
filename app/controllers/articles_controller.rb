@@ -1,42 +1,70 @@
 class ArticlesController < ApplicationController
-  skip_before_action :authorized, only: %i[ show index create update destroy ]
+  rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found
+  # skip before action :authorized allows me to index and show articles without a user logged in 
+  skip_before_action :authorized, only: %i[show index]
+  # before action sets the private method set_article for the 3 listed methods so no need to add it in the method code
+  before_action :set_article, only: %i[show, update, destroy]
 
   # GET /articles or /articles.json
   def index
     @articles = Article.all
-    render :json @articles, status: :ok
+    render json: @articles, status: :ok
   end
 
   # GET /articles/1 or /articles/1.json
   def show
-    @article = set_article
+    unless @article
+      render json: { error: "Article not found" }, status: :not_found
+      return
+    end
+    
     render json: @article, status: :ok
   end
 
   # POST /articles or /articles.json
   def create
-    @article = Article.create!(create_article_params)
-    render json: @article, status: :created
+    @article = Article.new(create_article_params)
+    
+    if @article.save
+      render json: @article, status: :created
+    else
+      render json: { errors: @article.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
+  # unless looks for a false value in order to execute the code that follows 
   # PATCH/PUT /articles/1 or /articles/1.json
   def update
-    @article = set_article 
-    @article.update!(update_article_params)
-    render json: @article
+    unless @article
+      render json: { error: "Article not found" }, status: :not_found
+      return
+    end
+    
+    if @article.update(update_article_params)
+      render json: @article
+    else
+      render json: { errors: @article.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   # DELETE /articles/1 or /articles/1.json
   def destroy
-    @article = set_article
-    @article.destroy
-    head :no_content
+    unless @article
+      render json: { error: "Article not found" }, status: :not_found
+      return
+    end
+    
+    if @article.destroy
+      head :no_content
+    else
+      render json: { errors: ["Failed to delete the article."] }, status: :unprocessable_entity
+    end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
-      @article = Article.find(params[:id])
+      @article = Article.find_by(id: params[:id])
     end
 
     # Only allow a list of trusted parameters through.
