@@ -80,9 +80,5 @@ class ExercisesController < ApplicationController
     def find_exercise 
         exercise = Exercise.find(params[:id])
      end 
-
-     def render_record_not_found 
-        render json: { error: " Exercise not found" }, status: :not_found 
-    end 
     
 end
