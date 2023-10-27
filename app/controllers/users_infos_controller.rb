@@ -1,5 +1,4 @@
 class UsersInfosController < ApplicationController
-  rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found
   skip_before_action :authorized, only: %i[ index create show update destroy ]
 
   # GET /users_infos/1 or /users_infos/1.json

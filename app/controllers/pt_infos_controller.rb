@@ -1,5 +1,4 @@
 class PtInfosController < ApplicationController
-  rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found
   skip_before_action :authorized, only: %i[ show index create update destroy ]
   before_action :set_pt_info, only: %i[show update destroy]
 
