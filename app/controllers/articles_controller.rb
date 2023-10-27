@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   # skip before action :authorized allows me to index and show articles without a user logged in 
   skip_before_action :authorized, only: %i[show index]
-  # before action sets the private method set_article for the 3 listed methods so no need to add it in the method code
+  # before action runs set_article before having access to show update destroy
   before_action :set_article, only: %i[show, update, destroy]
 
   # GET /articles or /articles.json
