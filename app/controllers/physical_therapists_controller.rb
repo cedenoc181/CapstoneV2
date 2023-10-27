@@ -1,6 +1,7 @@
 class PhysicalTherapistsController < ApplicationController
-    skip_before_action :authorized, only: %i[index, show]
-
+    before_action :authorized
+    skip_before_action :authorized, only:[:index, :show]   
+    before_action :find_physical_therapist, only: [:show, :update, :destroy]
 
     def index
         @pt = PhysicalTherapist.all
@@ -8,40 +9,26 @@ class PhysicalTherapistsController < ApplicationController
     end
 
     def show
-        @pt = find_physical_therapist
         render json: @pt, serializer: PhysicalTherapistSerializer
     end
 
     def create
-        @pt = PhysicalTherapist.create!(create_physical_therapist_params)
+        @pt = PhysicalTherapist.create!(physical_therapist_params)
         render json: @pt,  status: :created
     end
 
     def update
-        @pt = find_physical_therapist
-        @pt.update!(update_physical_therapist_params)
+        @pt.update!(physical_therapist_params)
         render json: @pt
     end
          
     def destroy
-        @pt = find_physical_therapist
         @pt.destroy
         head :no_content 
     end
 
-    # this is commented out until fixed
-
-    # def insurance_filter
-    #    @insurance = PhysicalTherapist.where(insurance_network: params[:insurance_network].downcase)
-    #    render json: @insurance
-
-    # test this code out and see if this solves the issue is resolved and use ChatGPT to make it dry if needed 
-# PhysicalTherapist.pluck(:insurance_network).select!{|insurance| insurance.downcase.include? "Blue Cross Blue Shield"} 
-    # end
-
     def pt
-        info = find_physical_therapist
-        @pt = info.pt_infos
+        @pt = info.pt_info
         render json: @pt
     end
 
@@ -119,22 +106,25 @@ class PhysicalTherapistsController < ApplicationController
     #             targeted_insurance.each { |array| render json: array}
     #       end
 
+        # this is commented out until fixed
+
+    # def insurance_filter
+    #    @insurance = PhysicalTherapist.where(insurance_network: params[:insurance_network].downcase)
+    #    render json: @insurance
+
+    # test this code out and see if this solves the issue is resolved and use ChatGPT to make it dry if needed 
+# PhysicalTherapist.pluck(:insurance_network).select!{|insurance| insurance.downcase.include? "Blue Cross Blue Shield"} 
+    # end
+
+
     private 
 
     def find_physical_therapist 
        @pt = PhysicalTherapist.find(params[:id])
     end 
 
-    def create_physical_therapist_params
-        params.permit(:first_name, :last_name, :specialization, :title, :profile_picture)
-    end
-
-    def update_physical_therapist_params
+    def physical_therapist_params
         params.permit(:first_name, :last_name, :specialization, :title, :profile_picture, :rating)
     end
-
-    def render_record_not_found 
-        render json: { error: "Physcial Therapist not found" }, status: :not_found 
-    end 
 
 end

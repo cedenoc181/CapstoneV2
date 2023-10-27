@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "/my-appointments", to: "users#get_appointments"
   delete "/my-appointments/:id", to: "users#delete_visit"
 
-  get "/pt_info", to: "physical_therapists#pt"
+  get "physical_therapists/:id/pt_info", to: "physical_therapists#pt"
 
   # routes for body part filter for exercise data with underscore
   get 'exercises/upper_legs', to: 'exercises#upper_legs'
