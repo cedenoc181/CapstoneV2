@@ -1,5 +1,6 @@
 class PtInfosController < ApplicationController
-  skip_before_action :authorized, only: %i[ show index create update destroy ]
+  before_action :authorized
+  skip_before_action :authorized, only: %i[show]
   before_action :set_pt_info, only: %i[show update destroy]
 
   # GET /pt_infos/1 or /pt_infos/1.json
@@ -41,9 +42,5 @@ class PtInfosController < ApplicationController
       params.require(:pt_info).permit(:physical_therapist_id, :email, :fax, 
         :phone_number, :npi_number, :clinic_address, :post_grad_edu,
          :languages, :home_visit, :tele_medicine, :about_me, :insurance_network)
-    end
-
-    def render_record_not_found
-      render json: { error: "Pt info not found" }, status: :not_found
     end
 end
