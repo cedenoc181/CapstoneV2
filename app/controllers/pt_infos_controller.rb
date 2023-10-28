@@ -1,5 +1,4 @@
 class PtInfosController < ApplicationController
-  before_action :authorized
   skip_before_action :authorized, only: %i[show]
   before_action :set_pt_info, only: %i[show update destroy]
 

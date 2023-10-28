@@ -1,21 +1,30 @@
 class UsersController < ApplicationController
-    skip_before_action :authorized, only: %i[create, index, show, me]
+    before_action :find_user, only:%i[show, update, destroy]
+    skip_before_action :authorized, only:%i[create, show, me]
 
     def index 
-        user = User.all
-        render json: user, status: :ok
+        @user = User.all
+        render json: @user, status: :ok
     end 
 
     def show 
-        user = find_user
-        render json: user, serializer: UserSerializer 
+        render json: @user, serializer: UserSerializer 
     end 
 
     def create
        user = User.create!(create_user_params)
-
        token = encode_token({user_id: user.id})
        render json: {user: UserSerializer.new(user), jwt: token}, status: :created
+    end 
+
+    def update 
+      @user.update!(update_user_params)
+     render json: @user 
+    end 
+
+    def destroy
+     @user.destroy
+     head :no_content 
     end 
     
     def me 
@@ -45,18 +54,6 @@ class UsersController < ApplicationController
       head :no_content 
     end
 
-    def update 
-      user = find_user
-      user.update!(update_user_params)
-     render json: user 
-    end 
-
-    def destroy
-     user = find_user
-     user.destroy
-     head :no_content 
-    end 
-
     private 
 
     def find_ex 
@@ -68,7 +65,7 @@ class UsersController < ApplicationController
     end
 
     def find_user 
-        user = User.find(params[:id])
+        @user = User.find(params[:id])
     end 
 
     def create_user_params 
@@ -77,10 +74,6 @@ class UsersController < ApplicationController
 
     def update_user_params
       params.permit(:first_name, :last_name, :admin)
-    end 
-
-    def render_record_not_found 
-      render json: { error: "User not found" }, status: :not_found 
     end 
 
 end

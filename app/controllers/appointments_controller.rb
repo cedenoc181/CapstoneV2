@@ -1,5 +1,4 @@
 class AppointmentsController < ApplicationController
-    before_action :authorized
     before_action :find_appointment, only: %i[show update destroy]
 
 

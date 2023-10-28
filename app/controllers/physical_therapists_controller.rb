@@ -1,5 +1,4 @@
 class PhysicalTherapistsController < ApplicationController
-    before_action :authorized
     skip_before_action :authorized, only:[:index, :show]   
     before_action :find_physical_therapist, only: [:show, :update, :destroy]
 

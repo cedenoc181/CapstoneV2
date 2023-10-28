@@ -1,9 +1,9 @@
 class UsersInfosController < ApplicationController
-  skip_before_action :authorized, only: %i[ index create show update destroy ]
-
+  skip_before_action :authorized
+  before_action :set_users_info, only: %i[ show, update, destroy ]
+  
   # GET /users_infos/1 or /users_infos/1.json
   def show
-    @user_info = set_users_info
     render json: @user_info
   end
 
@@ -20,14 +20,12 @@ class UsersInfosController < ApplicationController
 
   # PATCH/PUT /users_infos/1 or /users_infos/1.json
   def update
-    @users_info = set_users_info
     @users_info.update!(users_info_params)
     render json: @users_info
   end
 
   # DELETE /users_infos/1 or /users_infos/1.json
   def destroy
-    @users_info = set_users_info
     @users_info.destroy
     head :no_content
   end
@@ -35,7 +33,7 @@ class UsersInfosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_users_info
-      users_info = UsersInfo.find(params[:id])
+      @users_info = UsersInfo.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
