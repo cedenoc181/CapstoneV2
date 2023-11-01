@@ -1,3 +1,4 @@
+# done
 class FavoritesController < ApplicationController
     skip_before_action :authorized
     before_action :find_favorite, only: [:show, :destroy]

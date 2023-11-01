@@ -1,6 +1,7 @@
+# done
 class ReviewsController < ApplicationController
-    before_action :find_review, only:%i[show, update, destroy]
-    skip_before_action :authorized, only:%i[index, show]
+    before_action :find_review, only: [:show, :update, :destroy]
+    skip_before_action :authorized, only: [:index, :show]
 
 
     def index

@@ -1,6 +1,7 @@
+# done
 class PtInfosController < ApplicationController
-  skip_before_action :authorized, only: %i[show]
-  before_action :set_pt_info, only: %i[show update destroy]
+  skip_before_action :authorized, only: [:show, :index]
+  before_action :set_pt_info, only: [:show, :update, :destroy]
 
   # GET /pt_infos/1 or /pt_infos/1.json
   def show

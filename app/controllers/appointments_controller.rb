@@ -1,5 +1,6 @@
+# done
 class AppointmentsController < ApplicationController
-    before_action :find_appointment, only: %i[show update destroy]
+    before_action :find_appointment, only: [:show, :update, :destroy]
 
 
     def index
@@ -12,12 +13,12 @@ class AppointmentsController < ApplicationController
     end
 
     def update 
-        @appointment.update!(update_appointments_params)
+        @appointment.update!(appointment_params)
        render json:  @appointment
       end 
 
     def create
-        @appointment = Appointment.create!(create_appointment_params)
+        @appointment = Appointment.create!(appointment_params)
         render json:  @appointment, status: :created
     end
 
@@ -32,11 +33,7 @@ class AppointmentsController < ApplicationController
         @appointment = Appointment.find(params[:id])
     end
 
-    def update_appointments_params
-        params.permit(:physical_therapist_id, :scheduled, :case, :telemedicine, :home_visit)
-    end 
-
-    def create_appointment_params
+    def appointment_params
         params.permit(:user_id, :physical_therapist_id, :scheduled, :case, :telemedicine, :home_visit)
     end
     

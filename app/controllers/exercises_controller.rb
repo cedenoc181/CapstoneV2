@@ -1,3 +1,4 @@
+# done
 class ExercisesController < ApplicationController
     skip_before_action :authorized
 

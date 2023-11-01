@@ -1,10 +1,11 @@
+# done
 class UsersInfosController < ApplicationController
   skip_before_action :authorized
-  before_action :set_users_info, only: %i[ show, update, destroy ]
+  before_action :set_users_info, only: [ :show, :update, :destroy ]
   
   # GET /users_infos/1 or /users_infos/1.json
   def show
-    render json: @user_info
+    render json: @user_info, status: :ok
   end
 
   def index

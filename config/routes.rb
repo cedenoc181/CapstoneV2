@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "/fav", to: "users#favorite_exercises"
   delete "/fav/:exercise_id", to: "users#fav_delete"
   # still working on this route my-appointments
-  get "/my-appointments", to: "users#get_appointments"
+  # get "/my-appointments", to: "users#index_appointments"
   delete "/my-appointments/:id", to: "users#delete_visit"
 
   get "physical_therapists/:id/pt_info", to: "physical_therapists#pt"

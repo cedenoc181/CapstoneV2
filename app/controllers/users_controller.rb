@@ -1,6 +1,7 @@
+# done
 class UsersController < ApplicationController
-    before_action :find_user, only:%i[show, update, destroy]
-    skip_before_action :authorized, only:%i[create, show, me]
+    before_action :find_user, only: [:show, :update, :destroy]
+    skip_before_action :authorized, only: [:create, :show, :me]
 
     def index 
         @user = User.all
@@ -12,9 +13,9 @@ class UsersController < ApplicationController
     end 
 
     def create
-       user = User.create!(create_user_params)
-       token = encode_token({user_id: user.id})
-       render json: {user: UserSerializer.new(user), jwt: token}, status: :created
+       @user = User.create!(create_user_params)
+       token = encode_token({user_id: @user.id})
+       render json: {user: UserSerializer.new(@user), jwt: token}, status: :created
     end 
 
     def update 
@@ -42,15 +43,17 @@ class UsersController < ApplicationController
       head :no_content 
     end
     
-    def get_appointments
-      appointments = Appointment.where(user_id: current_user)
-        render json: appointments
-      # render json: current_user.to_json(only: [:appointments]), status: :ok
-    end
+    # dont need method because i use the serializer to pull users appointment through association.
+    # consider making this a route to updat appointment
+    # def index_appointments
+    #   @appointments = Appointment.where(user_id: current_user)
+    #     render json: @appointments
+    #   # render json: current_user.to_json(only: [:appointments]), status: :ok
+    # end
 
     def delete_visit
-      visit = find_appointment
-      visit.destroy
+      @visit = find_appointment
+      @visit.destroy
       head :no_content 
     end
 
@@ -61,7 +64,7 @@ class UsersController < ApplicationController
     end 
 
     def find_appointment
-      app = current_user.appointments.find_by(id: params[:id])
+      @visit = current_user.appointments.find_by(id: params[:id])
     end
 
     def find_user 

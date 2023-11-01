@@ -1,60 +1,36 @@
+# done
 class ExpressionsController < ApplicationController
-  before_action :set_expression, only: %i[ show edit update destroy ]
+  before_action :set_expression, only: [ :show, :update, :destroy ]
+  skip_before_action :authorized, only: [:index, :show]
 
   # GET /expressions or /expressions.json
   def index
     @expressions = Expression.all
+    render json: @expression, status: :ok
   end
 
   # GET /expressions/1 or /expressions/1.json
   def show
+    render json: @expression, status: :ok
   end
 
-  # GET /expressions/new
-  def new
-    @expression = Expression.new
-  end
-
-  # GET /expressions/1/edit
-  def edit
-  end
 
   # POST /expressions or /expressions.json
   def create
-    @expression = Expression.new(expression_params)
-
-    respond_to do |format|
-      if @expression.save
-        format.html { redirect_to expression_url(@expression), notice: "Expression was successfully created." }
-        format.json { render :show, status: :created, location: @expression }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @expression.errors, status: :unprocessable_entity }
-      end
-    end
+    @expression = Expression.create!(expression_params)
+    render json: @expression, status: :create
   end
 
   # PATCH/PUT /expressions/1 or /expressions/1.json
   def update
-    respond_to do |format|
-      if @expression.update(expression_params)
-        format.html { redirect_to expression_url(@expression), notice: "Expression was successfully updated." }
-        format.json { render :show, status: :ok, location: @expression }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @expression.errors, status: :unprocessable_entity }
-      end
-    end
+  @expression = Expression.update!(expression_params)
+  render json: @expression, status: :ok
   end
 
   # DELETE /expressions/1 or /expressions/1.json
   def destroy
     @expression.destroy
-
-    respond_to do |format|
-      format.html { redirect_to expressions_url, notice: "Expression was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    head :no_content 
   end
 
   private
