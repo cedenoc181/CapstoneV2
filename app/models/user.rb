@@ -14,4 +14,6 @@ class User < ApplicationRecord
     validates :password, length: { minimum: 8 }, if: -> { password.present? }
 
     validates :email, uniqueness: true
+
+    accepts_nested_attributes_for :users_info
 end
