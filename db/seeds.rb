@@ -129,22 +129,22 @@ end
 
 p "seeding Articles"
 
-Article.create!(physical_therapist_id: 3, title: "Beat plantar facaitis day by day", author: "", article_body: "", category: "", photo: "", published: , date_published: "")
+Article.create!(physical_therapist_id: 3, title: "Beat plantar facaitis day by day", author: "Cesar Rodriguez", article_body: "", category: "Rehabilitation", photo: "", published: true, date_published: "02/18/2022")
 
 
-Article.create!(physical_therapist_id: 7, title: "Do whats best for your low back", author: "", article_body: "", category: "", photo: "", published: , date_published: "")
+Article.create!(physical_therapist_id: 7, title: "Do whats best for your low back", author: "Kellye Cummerata", article_body: "", category: "Rehabilitation", photo: "", published: true, date_published: "06/09/2023")
 
 
-Article.create!(physical_therapist_id: 13, title: "The powerful core", author: "", article_body: "", category: "", photo: "", published: , date_published: "")
+Article.create!(physical_therapist_id: 13, title: "The powerful core", author: "tim cook", article_body: "", category: "Exercise", photo: "", published: true, date_published: "06/29/2023")
 
 
-Article.create!(physical_therapist_id: 11, title: "Recovering from achillies rupture", author: "", article_body: "", category: "", photo: "", published: , date_published: "")
+Article.create!(physical_therapist_id: 11, title: "Recovering from achillies rupture", author: "chris johnson", article_body: "", category: "Rehabilitation", photo: "", published: true, date_published: "12/30/2022")
 
 
-Article.create!(physical_therapist_id: 6, title: "How physical therapy cured my vertigo", author: "":, article_body: "", category: "", photo: "", published: , date_published: "")
+Article.create!(physical_therapist_id: 6, title: "How physical therapy cured my vertigo", author: "Michelle Witting":, article_body: "", category: "Rehabilitation", photo: "", published: true, date_published: "07/08/2023")
 
 
-Article.create!(physical_therapist_id: 1, title: "Total knee replacements and how to overcome it", author: "", article_body: "", category: "", photo: "", published: , date_published: "")
+Article.create!(physical_therapist_id: 1, title: "Total knee replacements and how to overcome it", author: "Jorge Graham", article_body: "", category: "Rehabilitation", photo: "", published: true, date_published: "04/16/2023")
 
 
 
